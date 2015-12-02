@@ -1,0 +1,137 @@
+\documentclass[10pt,letterpaper,draft]{article}
+
+\usepackage{wrapfig}
+\usepackage[hmargin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[font={small,it}]{caption}
+\usepackage[outercaption]{sidecap}    
+\usepackage{enumitem}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[compact]{titlesec}
+
+\usepackage{soul}
+\usepackage{color}
+\usepackage{srcltx}
+\usepackage{xspace}
+\usepackage{wrapfig}
+\newif\ifdraft
+\drafttrue
+\ifdraft
+ \newcommand{\jhanote}[1]{ \textcolor{red}  {***SJ:#1}\xspace}
+ \newcommand{\note}[1]{ \textcolor{blue}  {***Note:#1}\xspace}
+\else
+ \newcommand{\jhanote}[1]{}
+ \newcommand{\note}[1]{}
+\fi
+
+% \usepackage[firstpage]{draftwatermark}
+% \SetWatermarkLightness{0.66}
+% \SetWatermarkScale{1.2}
+%\usepackage{draftwatermark}
+
+\titlespacing{\section}{0pt}{*1}{*1}
+\titlespacing{\subsection}{0pt}{*1}{*0}
+\titlespacing{\subsubsection}{0pt}{*1}{*0}
+\renewcommand{\rmdefault}{phv} 
+\renewcommand{\sfdefault}{phv} 
+\newcommand*{\Fig}[1]{Figure~\ref{#1}}
+\newcommand*{\Figs}[1]{Figures~\ref{#1}}
+\newcommand*{\Table}[1]{Table~\ref{#1}}
+\newcommand*{\Tables}[1]{Tables~\ref{#1}}
+\newcommand*{\Eqr}[1]{(\ref{#1})}
+\newcommand*{\Eq}[1]{Equation~(\ref{#1})}
+\newcommand*{\Eqs}[1]{Equations~(\ref{#1})}
+\newcommand*{\Sect}[1]{Section~\ref{#1}}
+\newcommand*{\Sects}[1]{Sections~\ref{#1}}
+\newcommand*{\Alg}[1]{Algorithm~\ref{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NSF Commands                                                         %%
+%%%%%%%%%%% EXACT 1in MARGINS %%%%%%                                    %%
+% \setlength{\textwidth}{6.5in}     %%                                    %%
+% \setlength{\oddsidemargin}{0in}   %% (It is recommended that you        %%
+% \setlength{\evensidemargin}{0in}  %%  not change these parameters,      %%
+% \setlength{\textheight}{8.5in}    %%  at the risk of having your        %%
+% \setlength{\topmargin}{0in}       %%  proposal dismissed on the basis   %%
+% \setlength{\headheight}{0in}      %%  of incorrect formatting!!!)       %%
+% \setlength{\headsep}{0in}         %%                                    %%
+% \setlength{\footskip}{.5in}       %%                                    %%
+%\usepackage{url}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                   %%
+%\newcommand{\required}[1]{\subsection*{\hfil #1\hfil}}                 %%
+%\renewcommand{\refname}{\hfil References Cited\hfil}                   %%
+%\bibliographystyle{plain}                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\date{\today}
+
+\title{\bf Big PanDA Workflow Management on Titan for High Energy and Nuclear Physics and for Future Extreme Scale Scientific Applications}
+
+\begin{document}
+
+%\usepackage{hyperref}
+% Top Matter
+%\pretolerance 9000
+%\pagestyle{empty}
+% \thispagestyle{empty}
+% \begin{center}
+% \Large
+% Project Summary
+% \end{center}
+
+%\newpage
+
+% \thispagestyle{empty}
+% \setcounter{tocdepth}{4}
+% \normalsize
+% \tableofcontents
+% \normalsize
+% \newpage
+
+% \setcounter{page}{1}
+% \setcounter{section}{0}
+
+\renewcommand{\thepage}{\arabic{page}}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\begin{center} 
+
+\Large Random
+\vspace{0.25in}
+\large S. Jha
+\large {\it Rutgers University}
+
+\vspace{0.25in}
+\large Peter M. Kasson
+\large {\it xyz}
+
+\vspace{0.25in}
+
+\large Abstract
+
+\end{center} {\it Next-generation exascale systems will fundamentally expand the reach of biomolecular simulations and the resulting scientific insight, enabling the simulation of larger biological systems (weak scaling), longer timescales (strong scaling), more complex molecular interactions, and robust uncertainty quantification (more accurate sampling).  Since currently envisioned exascale hardware architectures are essentially larger versions of systems available today, it will be challenging to solve biological problems that require longer timescales, involve more complex interactions and robust uncertainty quantification without significant algorithmic improvements.  We believe that high-level simulation algorithms incorporating high-level parallelism and leveraging the statistical nature of molecular processes can provide a means to address these challenges of scaling.  Proof-of-concept simulation algorithms have yielded advanced sampling and adaptive control algorithms for efficient simulation of long timescales and complex behaviors. Novel dataflow and workflow systems are needed to implement these advanced algorithms in a way that is usable by the community in exascale systems. A middleware ecosystem that provides these in a robust, scalable, reusable, and extensible framework is a key requirement for exascale infrastructure investment to result in revolutionary biological insight.  }
+
+\vspace{0.15in}
+
+\section*{Introduction}
+
+In the past decade, substantial algorithmic and hardware advances have led to improvements in strong and weak scaling that permit millisecond-length simulations of moderate-sized biomolecular systems and short simulations for large assemblies.  Both of these have enabled direct comparison with experimental observables in ways not previously possible.  However, most software development has focused on optimizing single-simulation performance, while many chemical and biological problems require solving a higher-level statistical problem such as the stochastic behavior of large ensembles of molecules or the statistical physics of a few molecules over longer timescales.  Higher-level methods for solving these statistical problems have been the focus of many recent advances in molecular simulation, but broad adoption has been limited by the lack  of software frameworks to perform these calculations in a manner that is flexible, scalable, and provides a low barrier to entry.  
+
+In order to support new scientific discoveries and the effective use of computational resources, a 100x increase in capacity must be accompanied by a concomitant change in the  sophistication and type of molecular simulations, for example, the ability to move beyond simply performing individual, isolated simulations faster. A fundamental need is to support higher-level formulations that enable efficient scaling of simulation problems on large computational resources beyond current limits.  This is necessary to tackle biological and chemical problems that have thus far eluded accurate simulation.  The ecosystem of cyberinfrastructure for molecular simulations must evolve to support new simulation modes, which include but are not limited to: 
+
+\setcounter{page}{1} \pagestyle{plain} \pagenumbering{roman}
+\bibliographystyle{unsrt}
+\bibliography{Big-panDA}
+
+\end{document}
