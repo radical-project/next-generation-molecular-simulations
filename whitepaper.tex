@@ -135,7 +135,7 @@
   provide a means to address these challenges of scaling.  Proof-of-concept
   simulation algorithms have yielded advanced sampling and adaptive control
   algorithms for efficient simulation of long timescales and complex
-  behaviors~\cite{kasson1}. Novel dataflow and workflow systems are needed to
+  behaviors. Novel dataflow and workflow systems are needed to
   implement these advanced algorithms in a way that is usable by the community
   in exascale systems. A middleware ecosystem that provides these in a robust,
   scalable, reusable, and extensible framework is a key requirement for exascale
@@ -155,47 +155,53 @@ while many chemical and biological problems require solving a higher-level
 statistical problem such as the stochastic behavior of large ensembles of
 molecules or the statistical physics of a few molecules over longer timescales.
 Higher-level methods for solving these statistical problems have been the focus
-of many recent advances in molecular simulation, but broad adoption has been
+of many recent advances~\cite{kasson1} in molecular simulation, but broad adoption has been
 limited by the lack of software frameworks to perform these calculations in a
 manner that is flexible, scalable, and provides a low barrier to entry.
 
-In order to support new scientific discoveries and the effective use of
-computational resources, a 100x increase in capacity must be accompanied by a
-concomitant change in the sophistication and type of molecular simulations, for
-example, the ability to move beyond simply performing individual, isolated
-simulations faster. A fundamental need is to support higher-level formulations
-that enable efficient scaling of simulation problems on large computational
-resources beyond current limits.  This is necessary to tackle biological and
-chemical problems that have thus far eluded accurate simulation.  The ecosystem
-of cyberinfrastructure for molecular simulations must evolve to support new
-simulation modes, which include but are not limited to:
+% in order to support new scientific discoveries and the effective use of
+% computational resources,
+
+\jhanote{ Peter, Can you check this paragraph is OK with you please?}
+A 100x increase in computational capacity must be accompanied by a concomitant
+change in the sophistication and type of molecular simulations. A fundamental
+need is to support higher-level formulations that go beyond simply performing
+individual, isolated simulations faster.
+% and enable efficient scaling of simulation problems on large computational
+% resources beyond current limits.
+This is necessary to tackle biological and chemical problems such as
+intrinsically disordered proteins that have thus far eluded accurate simulation.
+The ecosystem of cyberinfrastructure for molecular simulations must evolve to
+support new simulation modes, which include but are not limited to:
 
 \begin{itemize}
 \item Replicas/ensembles: For long the supercomputing ecosystem has been tuned
-  towards the effective execution of single large jobs. As important as this is,
-  there is a need to support the requirements of molecular science applications
-  that critically depend upon the effective execution of multiple simulations,
-  either concurrently or in some coupled form. Advanced Sampling techniques such
-  as Replica-Exchange and Transition Path Sampling are two prominent examples
-  that require first-class support for many replicas/ensembles. The ability to
-  support O(100,000) replicas, where each replica would itself be a parallel
-  simulation, will be required to explore multi-dimensional ensembles such as
-  protein mutation spaces or the binding of different small molecules to a drug
-  target.
+  towards the effective execution of single large jobs (weak scaling). As
+  important as this is, there is a need to support the requirements of molecular
+  science applications that critically depend upon the effective execution of
+  multiple simulations, either concurrently or in some coupled form. Advanced
+  Sampling techniques such as Replica-Exchange and Transition Path Sampling are
+  two prominent examples that require first-class support for many
+  replicas/ensembles. The ability to support O(100,000) replicas, where each
+  replica would itself be a parallel simulation, will be required to explore
+  multi-dimensional ensembles such as protein mutation spaces or the binding of
+  different small molecules to a drug target.
 
-\item Computationally Steered and Adaptive workflows: Computational
+\item Computationally Steered and Adaptive workflows: Adaptive workflows can be
+  thought of as internally steered, where real-time analyses are used to
+  determine the next step in the workflow. Diffusion-map driven molecular
+  dynamics and methods that depend upon determining collective
+  variables on the fly demand adaptive workflows~\cite{cecilia1} .  Computational
   Steering~\cite{comp-steer} is the ability to dynamically change the course of
   a computational process. In most cases, the stimulus for change is external to
   the existing computational process, e.g., human interaction or an external
   computational process that might be a consumer or producer of input/output
-  data.  Adaptive workflows can be thought of as internally steered, where
-  real-time analyses are used to determine the next step in the
-  workflow. Ultimately, streaming-data steered simulations to integrate
-  experiments, simulations, and analysis will be needed to take full advantage
-  of experimental facilities such as high energy light
-  sources~\cite{jha1}. Frameworks and libraries that will support the coupling
-  of multi-physics high-performance simulations and hybrid computational
-  processes will be required.
+  data. Streaming-data steered simulations to integrate experiments,
+  simulations, and analysis will be needed to take full advantage of
+  experimental facilities such as high energy light sources~\cite{jha1}.
+  Frameworks and libraries that will support the coupling of multi-physics
+  high-performance simulations and hybrid computational processes will be
+  required.
 
 \end{itemize}
 
