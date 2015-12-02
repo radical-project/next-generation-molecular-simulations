@@ -121,7 +121,25 @@
 
 \large Abstract
 
-\end{center} {\it Next-generation exascale systems will fundamentally expand the reach of biomolecular simulations and the resulting scientific insight, enabling the simulation of larger biological systems (weak scaling), longer timescales (strong scaling), more complex molecular interactions, and robust uncertainty quantification (more accurate sampling).  Since currently envisioned exascale hardware architectures are essentially larger versions of systems available today, it will be challenging to solve biological problems that require longer timescales, involve more complex interactions and robust uncertainty quantification without significant algorithmic improvements.  We believe that high-level simulation algorithms incorporating high-level parallelism and leveraging the statistical nature of molecular processes can provide a means to address these challenges of scaling.  Proof-of-concept simulation algorithms have yielded advanced sampling and adaptive control algorithms for efficient simulation of long timescales and complex behaviors. Novel dataflow and workflow systems are needed to implement these advanced algorithms in a way that is usable by the community in exascale systems. A middleware ecosystem that provides these in a robust, scalable, reusable, and extensible framework is a key requirement for exascale infrastructure investment to result in revolutionary biological insight.  }
+\end{center} {\it Next-generation exascale systems will fundamentally expand the
+  reach of biomolecular simulations and the resulting scientific insight,
+  enabling the simulation of larger biological systems (weak scaling), longer
+  timescales (strong scaling), more complex molecular interactions, and robust
+  uncertainty quantification (more accurate sampling).  Since currently
+  envisioned exascale hardware architectures are essentially larger versions of
+  systems available today, it will be challenging to solve biological problems
+  that require longer timescales, involve more complex interactions and robust
+  uncertainty quantification without significant algorithmic improvements.  We
+  believe that high-level simulation algorithms incorporating high-level
+  parallelism and leveraging the statistical nature of molecular processes can
+  provide a means to address these challenges of scaling.  Proof-of-concept
+  simulation algorithms have yielded advanced sampling and adaptive control
+  algorithms for efficient simulation of long timescales and complex
+  behaviors~\cite{kasson1}. Novel dataflow and workflow systems are needed to
+  implement these advanced algorithms in a way that is usable by the community
+  in exascale systems. A middleware ecosystem that provides these in a robust,
+  scalable, reusable, and extensible framework is a key requirement for exascale
+  infrastructure investment to result in revolutionary biological insight.  }
 
 \vspace{0.15in}
 
@@ -130,7 +148,7 @@
 In the past decade, substantial algorithmic and hardware advances have led to
 improvements in strong and weak scaling that permit millisecond-length
 simulations of moderate-sized biomolecular systems and short simulations for
-large assemblies.  Both of these have enabled direct comparison with
+large assemblies~\cite{kasson2}.  Both of these have enabled direct comparison with
 experimental observables in ways not previously possible.  However, most
 software development has focused on optimizing single-simulation performance,
 while many chemical and biological problems require solving a higher-level
@@ -165,18 +183,19 @@ simulation modes, which include but are not limited to:
   protein mutation spaces or the binding of different small molecules to a drug
   target.
 
-\item Computationally Steered and Adaptive workflows: Computational Steering [1]
-  is the ability to dynamically change the course of a computational process. In
-  most cases, the stimulus for change is external to the existing computational
-  process, e.g., human interaction or an external computational process that
-  might be a consumer or producer of input/output data.  Adaptive workflows can
-  be thought of as internally steered, where real-time analyses are used to
-  determine the next step in the workflow. Ultimately, streaming-data steered
-  simulations to integrate experiments, simulations, and analysis will be needed
-  to take full advantage of experimental facilities such as high energy light
-  sources. Frameworks and libraries that will support the coupling of
-  multi-physics high-performance simulations and hybrid computational processes
-  will be required.
+\item Computationally Steered and Adaptive workflows: Computational
+  Steering~\cite{comp-steer} is the ability to dynamically change the course of
+  a computational process. In most cases, the stimulus for change is external to
+  the existing computational process, e.g., human interaction or an external
+  computational process that might be a consumer or producer of input/output
+  data.  Adaptive workflows can be thought of as internally steered, where
+  real-time analyses are used to determine the next step in the
+  workflow. Ultimately, streaming-data steered simulations to integrate
+  experiments, simulations, and analysis will be needed to take full advantage
+  of experimental facilities such as high energy light
+  sources~\cite{jha1}. Frameworks and libraries that will support the coupling
+  of multi-physics high-performance simulations and hybrid computational
+  processes will be required.
 
 \end{itemize}
 
@@ -197,7 +216,10 @@ ranging from “in-situ” analysis to advanced analytics platforms as supported
 environments such as Spark, Flink etc.  Additional important challenges include
 joint analysis of simulation and large-scale experimental data.
 
-{\bf Recommendations:} Progress will be stymied by the lack of a scalable, flexible, domain-optimized framework for expressing and implementing high-level simulation strategies and the right middleware and software ecosystem. Thus, functionally there is a need for:
+{\bf Recommendations:} Progress will be stymied by the lack of a scalable,
+flexible, domain-optimized framework for expressing and implementing high-level
+simulation strategies and the right middleware and software ecosystem. Thus,
+functionally there is a need for:
 \begin{itemize}
 \item Workflow expressivity that can capture not just one “evolutionary” pathway but which supports statistical descriptions for multiple evolutionary pathways and adaptive control between them. 
 \item Workflow platforms that provide a robust implementation of this rich expressivity are critically needed as well.
@@ -210,15 +232,8 @@ joint analysis of simulation and large-scale experimental data.
 \end{itemize}
 \end{itemize}
 
-{\bf Acknowledgements:} We thank Michael Shirts (Colorado) and Thomas Cheatham (Utah) for early and helpful discussions about ensemble based methods.
-
-{\bf Author Contact:}
-
-shantenu.jha@rutgers.edu   
-
-and 
-
-kasson@virginia.edu 
+{\bf Acknowledgements:} We thank Michael Shirts (Colorado) and Thomas Cheatham
+(Utah) for early and helpful discussions about ensemble based methods.
 
 % Peter Kasson, 
 % Associate Professor,
@@ -226,12 +241,8 @@ kasson@virginia.edu
 % and of Biomedical Engineering
 % University of Virginia\\
 
-
-
-
-
 \setcounter{page}{1} \pagestyle{plain} \pagenumbering{roman}
 \bibliographystyle{unsrt}
-\bibliography{Big-panDA}
+\bibliography{references}
 
 \end{document}
