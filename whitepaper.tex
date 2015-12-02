@@ -175,7 +175,7 @@ The ecosystem of cyberinfrastructure for molecular simulations must evolve to
 support new simulation modes, which include but are not limited to:
 
 \begin{itemize}
-\item Replicas/ensembles: For long the supercomputing ecosystem has been tuned
+\item 100x Replicas/Ensembles: For long the supercomputing ecosystem has been tuned
   towards the effective execution of single large jobs (weak scaling). As
   important as this is, there is a need to support the requirements of molecular
   science applications that critically depend upon the effective execution of
@@ -187,21 +187,25 @@ support new simulation modes, which include but are not limited to:
   multi-dimensional ensembles such as protein mutation spaces or the binding of
   different small molecules to a drug target.
 
-\item Computationally Steered and Adaptive workflows: Adaptive workflows can be
+\item Adaptive and Computationally Steered Workflows: Adaptive workflows can be
   thought of as internally steered, where real-time analyses are used to
   determine the next step in the workflow. Diffusion-map driven molecular
-  dynamics and methods that depend upon determining collective
-  variables on the fly demand adaptive workflows~\cite{cecilia1} .  Computational
-  Steering~\cite{comp-steer} is the ability to dynamically change the course of
-  a computational process. In most cases, the stimulus for change is external to
-  the existing computational process, e.g., human interaction or an external
-  computational process that might be a consumer or producer of input/output
-  data. Streaming-data steered simulations to integrate experiments,
-  simulations, and analysis will be needed to take full advantage of
-  experimental facilities such as high energy light sources~\cite{jha1}.
-  Frameworks and libraries that will support the coupling of multi-physics
-  high-performance simulations and hybrid computational processes will be
-  required.
+  dynamics and methods that determine collective variables ``on the fly''
+  require adaptive workflows~\cite{cecilia1}.  
+  % Computational Steering~\cite{comp-steer} is the ability to dynamically change
+  % the course of a computational process. In most cases, the stimulus for change
+  % is external to the existing computational process, e.g., human interaction or
+  % an external computational process that might be a consumer or producer of
+  % input/output data. 
+  Computational Steering~\cite{comp-steer} is the ability to dynamically change
+  the course of a computational process in response to external stimuli e.g.,
+  human interaction or an external computational process that might be a
+  consumer or producer of input/output data.  Streaming-data steered simulations
+  to integrate experiments, simulations, and analysis will be needed to take
+  full advantage of experimental facilities such as high energy light
+  sources~\cite{jha1}.  Frameworks and libraries that will support the coupling
+  of multi-physics high-performance simulations and hybrid computational
+  processes will be required.
 
 \end{itemize}
 
@@ -231,12 +235,13 @@ simulation strategies and the right middleware and software ecosystem. Thus,
 functionally there is a need for:
 \begin{itemize}
 \item Workflow expressivity that can capture not just one ``evolutionary'' pathway but which supports statistical descriptions for multiple evolutionary pathways and adaptive control between them. 
-\item Workflow platforms that provide a robust implementation of this rich expressivity are critically needed as well.
+\item Workflow platforms that provide a robust implementation of this rich expressivity are critically needed.
 \item Expressing simulation as a workflow can also provide reusable components that promote dissemination of new scientific methods and boost reproducibility.
 \item A middleware ecosystem that can support:
 \begin{itemize} 
-\item Dynamic and distributed scheduling of large number of concurrent tasks.
-\item Support for a range of computational steering and adaptive execution modes.
+\item Efficient execution and management of large number of concurrent tasks.
+\item Support for a range of adaptive execution and computational steering
+  modes.
 \item Inclusion of streaming data into  the high-performance simulation modes.
 \end{itemize}
 \end{itemize}
