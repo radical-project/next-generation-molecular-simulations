@@ -111,7 +111,7 @@
 \begin{center} 
 
 \vspace{0.25in}
-\large S. Jha$^{*}$\footnote{shantenu.jha@rutgers.edu} and Peter M. Kasson$^{+}$\footnote{kasson@virginia.edu}\\
+\large Shantenu Jha$^{*}$\footnote{shantenu.jha@rutgers.edu} and Peter M. Kasson$^{+}$\footnote{kasson@virginia.edu}\\
 
 \small {\it $^*$ Electrical and Computer Engineering, Rutgers University} \\
 \small {\it $^+$ Molecular Physiology and Biological Physics and Biomedical
@@ -145,7 +145,7 @@
 
 \section*{Introduction}
 
-In the past decade, substantial algorithmic and hardware advances have led to
+{\noindent In} the past decade, substantial algorithmic and hardware advances have led to
 improvements in strong and weak scaling that permit millisecond-length
 simulations of moderate-sized biomolecular systems and short simulations for
 large assemblies~\cite{kasson2}.  Both of these have enabled direct comparison with
@@ -209,19 +209,22 @@ million-fold different), and the cost of storing all data at the finest time
 resolution exceeds the cost of computation.  This necessitates multi-scale and
 multi-modal analysis, viz., the ability to analyze data at different levels of
 granularity and resolution. Traditionally, the analysis of data was performed
-“off-line”, however, with large volumes of data generated as well as increasing
-sophistication, there is a need to support “online” or real-time analysis in
+``offline'', however, with large volumes of data generated as well as increasing
+sophistication, there is a need to support ``online'' or real-time analysis in
 conjunction with the generation of data. This results in a set of requirements
-ranging from “in-situ” analysis to advanced analytics platforms as supported by
-environments such as Spark, Flink etc.  Additional important challenges include
-joint analysis of simulation and large-scale experimental data.
+ranging from ``in-situ'' analysis to advanced analytics platforms as supported
+by environments such as Spark, Flink etc.  Additional important challenges
+include joint analysis of simulation and large-scale experimental data.
 
-{\bf Recommendations:} Progress will be stymied by the lack of a scalable,
+
+\newpage
+
+{\noindent \bf Recommendations:} Progress will be stymied by the lack of a scalable,
 flexible, domain-optimized framework for expressing and implementing high-level
 simulation strategies and the right middleware and software ecosystem. Thus,
 functionally there is a need for:
 \begin{itemize}
-\item Workflow expressivity that can capture not just one “evolutionary” pathway but which supports statistical descriptions for multiple evolutionary pathways and adaptive control between them. 
+\item Workflow expressivity that can capture not just one ``evolutionary'' pathway but which supports statistical descriptions for multiple evolutionary pathways and adaptive control between them. 
 \item Workflow platforms that provide a robust implementation of this rich expressivity are critically needed as well.
 \item Expressing simulation as a workflow can also provide reusable components that promote dissemination of new scientific methods and boost reproducibility.
 \item A middleware ecosystem that can support:
@@ -232,7 +235,7 @@ functionally there is a need for:
 \end{itemize}
 \end{itemize}
 
-{\bf Acknowledgements:} We thank Michael Shirts (Colorado) and Thomas Cheatham
+{\noindent \bf Acknowledgements:} We thank Michael Shirts (Colorado) and Thomas Cheatham
 (Utah) for early and helpful discussions about ensemble based methods.
 
 % Peter Kasson, 
