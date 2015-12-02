@@ -107,14 +107,12 @@
 \thispagestyle{empty}
 \begin{center} 
 
-\Large Random
 \vspace{0.25in}
-\large S. Jha
-\large {\it Rutgers University}
+\large S. Jha$^1$ and Peter M. Kasson$^2$\\
 
-\vspace{0.25in}
-\large Peter M. Kasson
-\large {\it xyz}
+\small {\it $^1$ Electrical and Computer Engineering, Rutgers University} \\
+\small {\it $^2$ Molecular Physiology and Biological Physics and Biomedical
+  Engineering, University of Virginia}
 
 \vspace{0.25in}
 
@@ -126,9 +124,110 @@
 
 \section*{Introduction}
 
-In the past decade, substantial algorithmic and hardware advances have led to improvements in strong and weak scaling that permit millisecond-length simulations of moderate-sized biomolecular systems and short simulations for large assemblies.  Both of these have enabled direct comparison with experimental observables in ways not previously possible.  However, most software development has focused on optimizing single-simulation performance, while many chemical and biological problems require solving a higher-level statistical problem such as the stochastic behavior of large ensembles of molecules or the statistical physics of a few molecules over longer timescales.  Higher-level methods for solving these statistical problems have been the focus of many recent advances in molecular simulation, but broad adoption has been limited by the lack  of software frameworks to perform these calculations in a manner that is flexible, scalable, and provides a low barrier to entry.  
+In the past decade, substantial algorithmic and hardware advances have led to
+improvements in strong and weak scaling that permit millisecond-length
+simulations of moderate-sized biomolecular systems and short simulations for
+large assemblies.  Both of these have enabled direct comparison with
+experimental observables in ways not previously possible.  However, most
+software development has focused on optimizing single-simulation performance,
+while many chemical and biological problems require solving a higher-level
+statistical problem such as the stochastic behavior of large ensembles of
+molecules or the statistical physics of a few molecules over longer timescales.
+Higher-level methods for solving these statistical problems have been the focus
+of many recent advances in molecular simulation, but broad adoption has been
+limited by the lack of software frameworks to perform these calculations in a
+manner that is flexible, scalable, and provides a low barrier to entry.
 
-In order to support new scientific discoveries and the effective use of computational resources, a 100x increase in capacity must be accompanied by a concomitant change in the  sophistication and type of molecular simulations, for example, the ability to move beyond simply performing individual, isolated simulations faster. A fundamental need is to support higher-level formulations that enable efficient scaling of simulation problems on large computational resources beyond current limits.  This is necessary to tackle biological and chemical problems that have thus far eluded accurate simulation.  The ecosystem of cyberinfrastructure for molecular simulations must evolve to support new simulation modes, which include but are not limited to: 
+In order to support new scientific discoveries and the effective use of
+computational resources, a 100x increase in capacity must be accompanied by a
+concomitant change in the sophistication and type of molecular simulations, for
+example, the ability to move beyond simply performing individual, isolated
+simulations faster. A fundamental need is to support higher-level formulations
+that enable efficient scaling of simulation problems on large computational
+resources beyond current limits.  This is necessary to tackle biological and
+chemical problems that have thus far eluded accurate simulation.  The ecosystem
+of cyberinfrastructure for molecular simulations must evolve to support new
+simulation modes, which include but are not limited to:
+
+\begin{itemize}
+\item Replicas/ensembles: For long the supercomputing ecosystem has been tuned
+  towards the effective execution of single large jobs. As important as this is,
+  there is a need to support the requirements of molecular science applications
+  that critically depend upon the effective execution of multiple simulations,
+  either concurrently or in some coupled form. Advanced Sampling techniques such
+  as Replica-Exchange and Transition Path Sampling are two prominent examples
+  that require first-class support for many replicas/ensembles. The ability to
+  support O(100,000) replicas, where each replica would itself be a parallel
+  simulation, will be required to explore multi-dimensional ensembles such as
+  protein mutation spaces or the binding of different small molecules to a drug
+  target.
+
+\item Computationally Steered and Adaptive workflows: Computational Steering [1]
+  is the ability to dynamically change the course of a computational process. In
+  most cases, the stimulus for change is external to the existing computational
+  process, e.g., human interaction or an external computational process that
+  might be a consumer or producer of input/output data.  Adaptive workflows can
+  be thought of as internally steered, where real-time analyses are used to
+  determine the next step in the workflow. Ultimately, streaming-data steered
+  simulations to integrate experiments, simulations, and analysis will be needed
+  to take full advantage of experimental facilities such as high energy light
+  sources. Frameworks and libraries that will support the coupling of
+  multi-physics high-performance simulations and hybrid computational processes
+  will be required.
+
+\end{itemize}
+
+There is a need for a domain-optimized framework for expressing and implementing
+such high-level simulation strategies. Furthermore, scalable analysis
+capabilities are needed in conjunction with higher-level control algorithms and
+scalable simulations. Trajectory dataset sizes for large molecular systems are
+already stressing I/O subsystems; this trend will only increase. For example,
+critical experimental observables occur at widely divergent timescales (over
+million-fold different), and the cost of storing all data at the finest time
+resolution exceeds the cost of computation.  This necessitates multi-scale and
+multi-modal analysis, viz., the ability to analyze data at different levels of
+granularity and resolution. Traditionally, the analysis of data was performed
+“off-line”, however, with large volumes of data generated as well as increasing
+sophistication, there is a need to support “online” or real-time analysis in
+conjunction with the generation of data. This results in a set of requirements
+ranging from “in-situ” analysis to advanced analytics platforms as supported by
+environments such as Spark, Flink etc.  Additional important challenges include
+joint analysis of simulation and large-scale experimental data.
+
+{\bf Recommendations:} Progress will be stymied by the lack of a scalable, flexible, domain-optimized framework for expressing and implementing high-level simulation strategies and the right middleware and software ecosystem. Thus, functionally there is a need for:
+\begin{itemize}
+\item Workflow expressivity that can capture not just one “evolutionary” pathway but which supports statistical descriptions for multiple evolutionary pathways and adaptive control between them. 
+\item Workflow platforms that provide a robust implementation of this rich expressivity are critically needed as well.
+\item Expressing simulation as a workflow can also provide reusable components that promote dissemination of new scientific methods and boost reproducibility.
+\item A middleware ecosystem that can support:
+\begin{itemize} 
+\item Dynamic and distributed scheduling of large number of concurrent tasks.
+\item Support for a range of computational steering and adaptive execution modes.
+\item Inclusion of streaming data into  the high-performance simulation modes.
+\end{itemize}
+\end{itemize}
+
+{\bf Acknowledgements:} We thank Michael Shirts (Colorado) and Thomas Cheatham (Utah) for early and helpful discussions about ensemble based methods.
+
+{\bf Author Contact:}
+
+Shantenu Jha
+Associate Professor,
+Electrical and Computer Enginereing,
+Rutgers\\
+Email: shantenu.jha@rutgers.edu   
+
+and 
+
+Peter Kasson, 
+Associate Professor,
+Departments of Molecular Physiology and Biological Physics
+and of Biomedical Engineering
+University of Virginia\\
+Email: kasson@virginia.edu 
+
+
+
 
 \setcounter{page}{1} \pagestyle{plain} \pagenumbering{roman}
 \bibliographystyle{unsrt}
